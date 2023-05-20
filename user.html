@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome, <span id="username"></span>!</h1>
+    <img id="profile-picture" src="" alt="Profile Picture">
+  </div>
+
+  <script>
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const username = urlParams.get('name');
+      const profilePicture = urlParams.get('picture');
+
+      document.getElementById('username').textContent = decodeURIComponent(username);
+      document.getElementById('profile-picture').src = decodeURIComponent(profilePicture);
+    };
+  </script>
+</body>
+</html>
